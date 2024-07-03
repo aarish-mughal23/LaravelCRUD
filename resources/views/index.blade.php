@@ -23,6 +23,12 @@
         </div>
         <div class="row">
             <div class="col">
+                @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <table class="table table-hover table-dark rounded-4">
                     <thead>
                         <tr>
@@ -49,7 +55,7 @@
         </div>
         <div class="row border-top">
             <div class="col">
-                <a href="{{Route('add')}}" class="btn btn-primary mt-2">Add New Item</a>
+                <a href="{{ Route('add') }}" class="btn btn-primary mt-2">Add New Item</a>
             </div>
         </div>
         <div class="row">
@@ -60,4 +66,5 @@
     </div>
 </body>
 
+</html>
 </html>

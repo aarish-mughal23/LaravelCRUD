@@ -17,6 +17,7 @@
     <div class="row d-flex content-align-center align-items-center vh-100">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
+            <form action="{{ Route() }}" method="post"></form>
             <div class="card p-4">
                 <div class="row">
                     <div class="col-lg">
