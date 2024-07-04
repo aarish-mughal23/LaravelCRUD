@@ -28,28 +28,28 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                <table class="table table-hover table-dark rounded-4">
+                <table class="table table-hover table-dark" style="border-radius:10px; overflow:hidden;">
                     <thead>
                         <tr>
-                            <th class="display-5 fs-4">ID</th>
+                            <th class="display-5 fs-4 ps-4">ID</th>
                             <th class="display-5 fs-4">Name</th>
                             <th class="display-5 fs-4">Quantity</th>
                             <th class="display-5 fs-4">Price Per Item</th>
-                            <th class="display-5 fs-4">Options</th>
+                            <th class="display-5 fs-4 pe-4">Options</th>
 
                         </tr>
                     </thead>
                     <tbody class="align-middle">
                         @forelse ($items as $item)
                             <tr>
-                                <td>{{ $item->id }}</td>
+                                <td class="ps-4">{{ $item->id }}</td>
                                 <td><a href="{{ route('view', $item->id) }}">   
                                         {{ $item->name }}
                                     </a>
                                 </td>
                                 <td>{{ $item->quantity }}</td>
                                 <td>${{ $item->price }}</td>
-                                <td>
+                                <td class="pe-4">
                                     <div class="row">
                                         <div class="col">
                                             <a style="width:100%;" class="btn btn-warning"
