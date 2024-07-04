@@ -23,10 +23,33 @@ class ItemController extends Controller
         return redirect()->route("index")->with("success", "Item added Successfully");
     }
 
+    public function update(Request $request, Item $item){
+        $request->validate([
+            'name' => 'required',
+            'quantity' => 'required|integer',
+            'price' => 'required|numeric'
+        ]);
+        $item->update($request->all());
+
+        return redirect()->route("index")->with("success", "Item updated Successfully");
+    }
+
+    public function delete(Item $item){
+        $item->delete();
+        return redirect()->route("index")->with("success", "Item deleted Successfully");
+    }
+
     public function addView(){
         return view("add");
     }
     public function detailsView(Item $item){
         return view("view",compact("item"));
     }
+    public function updateView(Item $item){
+        return view("update",compact("item"));
+    }
+    public function deleteView(Item $item){
+        return view("delete", compact("item"));
+    }
+
 }
