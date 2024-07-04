@@ -28,7 +28,6 @@
                         {{ session('success') }}
                     </div>
                 @endif
-
                 <table class="table table-hover table-dark rounded-4">
                     <thead>
                         <tr>
@@ -40,22 +39,45 @@
 
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
+                    <tbody class="align-middle">
+                        @forelse ($items as $item)
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td><a href="{{ route('view', $item->id) }}">   
+                                        {{ $item->name }}
+                                    </a>
+                                </td>
+                                <td>{{ $item->quantity }}</td>
+                                <td>${{ $item->price }}</td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a style="width:100%;" class="btn btn-warning"
+                                                href="{{ route('update', $item->id) }}">Edit</a>
+                                        </div>
+                                        <div class="col">
+                                            <a style="width:100%;" class="btn btn-danger"
+                                                href="{{ route('delete', $item->id) }}">Delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <div class="alert alert-danger fst-italic m-0">
+                                        No Items saved yet.
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
         <div class="row border-top">
             <div class="col">
-                <a href="{{ Route('add') }}" class="btn btn-primary mt-2">Add New Item</a>
+                <a href="{{ route('add') }}" class="btn btn-primary mt-2">Add New Item</a>
             </div>
         </div>
         <div class="row">
@@ -67,4 +89,5 @@
 </body>
 
 </html>
+
 </html>

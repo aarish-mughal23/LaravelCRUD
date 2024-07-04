@@ -17,43 +17,45 @@
     <div class="row d-flex content-align-center align-items-center vh-100">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
-            <form action="{{ Route() }}" method="post"></form>
-            <div class="card p-4">
-                <div class="row">
-                    <div class="col-lg">
-                        <h1 class="display-4">Add New Item</h1><hr>
+            <form action="{{ route("addItem") }}" method="post">
+                @csrf
+                <div class="card p-4">
+                    <div class="row">
+                        <div class="col-lg">
+                            <h1 class="display-4">Add New Item</h1><hr>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-lg">
-                        <label for="name" class="form-text">Enter Name</label>
-                        <input type="text" name="name" id="name" class="form-control">
+                    <div class="row mb-2">
+                        <div class="col-lg">
+                            <label for="name" class="form-text">Enter Name</label>
+                            <input type="text" name="name" id="name" class="form-control">
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-lg">
-                        <label for="quantity" class="form-text">Enter Quantity</label>
-                        <input type="text" name="quantity" id="quantity" class="form-control">
+                    <div class="row mb-2">
+                        <div class="col-lg">
+                            <label for="quantity" class="form-text">Enter Quantity</label>
+                            <input type="text" name="quantity" id="quantity" class="form-control">
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-lg">
-                        <label for="price" class="form-text">Enter Price</label>
-                        <div class="input-group">
-                            <span class="input-group-text">$</span>
-                            <input type="text" name="price" id="price" class="form-control">
+                    <div class="row mb-2">
+                        <div class="col-lg">
+                            <label for="price" class="form-text">Enter Price</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="text" name="price" id="price" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-8">
+                            <button class="btn btn-primary" style="width:100%">Add</button>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="{{ Route('index') }}" class="btn btn-outline-dark" style="width:100%">Back</a>
                         </div>
                     </div>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-lg-8">
-                        <button class="btn btn-primary" style="width:100%">Add</button>
-                    </div>
-                    <div class="col-lg-4">
-                        <a href="{{ Route('index') }}" class="btn btn-outline-dark" style="width:100%">Back</a>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
         <div class="col-lg-4"></div>
     </div>
